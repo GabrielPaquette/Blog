@@ -6,6 +6,7 @@ import { Meteor } from 'meteor/meteor';
 import { Posts } from '../api/posts.js';
 
 import Post from './Post.js';
+import AccountsUIWrapper from './AccountsUIWrapper.js';
 
 // App component - represents the whole app
 class App extends Component {
@@ -29,6 +30,7 @@ class App extends Component {
       <div className="container">
         <header>
           <h1>The Coolest Public Blog on the Web</h1>
+          <AccountsUIWrapper />
           <form className="new-post" onSubmit={this.handleSubmit.bind(this)} >
               <input
                 type="text"
