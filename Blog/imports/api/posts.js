@@ -13,4 +13,9 @@ Meteor.methods({
       createdAt: new Date(),
     });
   },
+    'posts.remove'(postId){
+    check(postId, String)
+
+    Posts.remove(postId);
+  },
 });
