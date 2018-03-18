@@ -15,14 +15,28 @@ class App extends Component {
       <Post key={post._id} post={post} />
     ));
   }
+  handleSubmit(event){
+    event.preventDefault();
 
+    const text = ReactDOM.findDOMNode(this.refs.textInput).value.trim();
+
+    Meteor.call('posts.insert', text);
+
+    ReactDOM.findDOMNode(this.refs.textInput).value = '';
+  }
   render() {
     return (
       <div className="container">
         <header>
           <h1>The Coolest Public Blog on the Web</h1>
+          <form className="new-post" onSubmit={this.handleSubmit.bind(this)} >
+              <input
+                type="text"
+                ref="textInput"
+                placeholder="Type to submit a new post!"
+              />
+          </form>
         </header>
-
         <ul>
           {this.renderPosts()}
         </ul>
