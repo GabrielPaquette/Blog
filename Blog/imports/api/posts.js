@@ -11,6 +11,8 @@ Meteor.methods({
     Posts.insert({
       text,
       createdAt: new Date(),
+      owner: Meteor.userId(),
+      username: Meteor.user().username,
     });
   },
     'posts.remove'(postId){

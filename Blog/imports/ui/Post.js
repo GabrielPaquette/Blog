@@ -12,6 +12,8 @@ export default class Post extends Component {
        <button className="delete" onClick={this.deleteThisPost.bind(this)}>
          &times;
        </button>
+       <strong>{this.props.post.username}:</strong>
+        <br/><br/>
        <span className="text">{this.props.post.text}</span>
      </li>
     );

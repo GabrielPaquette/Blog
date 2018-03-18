@@ -30,14 +30,18 @@ class App extends Component {
       <div className="container">
         <header>
           <h1>The Coolest Public Blog on the Web</h1>
+
           <AccountsUIWrapper />
-          <form className="new-post" onSubmit={this.handleSubmit.bind(this)} >
+
+          { this.props.currentUser ?
+            <form className="new-post" onSubmit={this.handleSubmit.bind(this)} >
               <input
                 type="text"
                 ref="textInput"
-                placeholder="Type to submit a new post!"
+                placeholder="Type to add new post"
               />
-          </form>
+            </form> : ''
+        }
         </header>
         <ul>
           {this.renderPosts()}
@@ -50,5 +54,6 @@ class App extends Component {
 export default withTracker(() => {
   return {
     posts: Posts.find({}).fetch(),
+    currentUser: Meteor.user(),
   };
 })(App);
