@@ -1,12 +1,17 @@
+/*
+Created By: Gabriel Paquette
+Date Created: March 18, 2018
+Description: This file contains the Post component.
+             Each post has a delete and edit control.
+             These controls will only show for the
+             owner of the post.
+*/
+
+
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 // Post component - represents a single Post
 export default class Post extends Component {
-  //
-  // deleteThisPost(){
-  //   Meteor.call('posts.remove', this.props.post._id);
-  // }
-  // render() {
   constructor(props){
     super(props);
 
@@ -14,14 +19,18 @@ export default class Post extends Component {
       editingFlag: false,
     };
   }
+  //Deletes the post based on a post ID
   deleteThisPost(){
     Meteor.call('posts.remove', this.props.post._id);
   }
+  //sets the edit flag to true.
+  //This flag determines which controls to display
   editPost(){
     this.setState({
       editingFlag: true,
     });
   }
+  //saves a post and updates its text.
   savePost(){
     let postText = ReactDOM.findDOMNode(this.refs.postText).value;
 
@@ -30,6 +39,8 @@ export default class Post extends Component {
       editingFlag: false,
     });
   }
+  //sets the edit flag to false.
+  //This flag determines which controls to display
   cancelEdit(){
     this.setState({
       editingFlag: false,
@@ -38,7 +49,6 @@ export default class Post extends Component {
 
   render() {
     let postBody;
-
     //user is logged in and they are not editing their post
     if(this.props.showPrivateControls && !this.state.editingFlag) {
       postBody = (
@@ -72,7 +82,7 @@ export default class Post extends Component {
         </div>
       );
     }
-    //use not logged in
+    //user is not logged in
     else if(!this.props.showPrivateControls){
       postBody = (
         <span className="text">

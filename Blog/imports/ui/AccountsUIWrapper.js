@@ -1,3 +1,13 @@
+/*
+Created By: Gabriel Paquette
+Date Created: March 18, 2018
+Description: This file contains the AccountsUIWrapper component.
+             This component handles everything to do with
+             users, logging in and out.
+             This Component was taken from:
+             https://www.meteor.com/tutorials/react/adding-user-accounts
+*/
+
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import { Template } from 'meteor/templating';

@@ -1,3 +1,10 @@
+/*
+Created By: Gabriel Paquette
+Date Created: March 18, 2018
+Description: This file is the DAL from the 'posts' collection.
+             It handles all IO logic and basic data validation.
+*/
+
 import { Meteor } from 'meteor/meteor';
 import { Mongo } from 'meteor/mongo';
 import { check } from 'meteor/check';
@@ -11,6 +18,7 @@ if (Meteor.isServer) {
   });
 }
 Meteor.methods({
+  //inserts a post in the collection
   'posts.insert'(text) {
     check(text, String);
 
@@ -21,12 +29,14 @@ Meteor.methods({
       username: Meteor.user().username,
     });
   },
-    'posts.remove'(postId){
+  //removes a post from the collection
+  'posts.remove'(postId){
     check(postId, String)
 
     Posts.remove(postId);
   },
-    'posts.updatePost'(postId, text) {
+  //updates an existing post in the collection
+  'posts.updatePost'(postId, text) {
     check(postId, String);
     check(text, String);
 
