@@ -1,18 +1,17 @@
 import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
+import { withTracker } from 'meteor/react-meteor-data';
+import { Meteor } from 'meteor/meteor';
+
+import { Posts } from '../api/posts.js';
 
 import Post from './Post.js';
 
 // App component - represents the whole app
-export default class App extends Component {
-  getPosts() {
-    return [
-      { _id: 1, text: 'Test Post' },
-      { _id: 2, text: 'Test Post' },
-    ];
-  }
+class App extends Component {
 
   renderPosts() {
-    return this.getPosts().map((post) => (
+    return this.props.posts.map((post) => (
       <Post key={post._id} post={post} />
     ));
   }
@@ -31,3 +30,9 @@ export default class App extends Component {
     );
   }
 }
+
+export default withTracker(() => {
+  return {
+    posts: Posts.find({}).fetch(),
+  };
+})(App);
