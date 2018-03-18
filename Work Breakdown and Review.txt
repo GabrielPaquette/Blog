@@ -1,0 +1,40 @@
+Recieved Performance test on March 13.
+
+March 13:
+Read over Test and did research into Meteor as I had no experience using it at that point.
+Hours of work: .5
+
+March 14: 
+Installed Meteor. This took longer than expected, as I ran into an obscure bug
+that was causing the installation of meteor via chololaty to hang and not intall
+correctly. This was resolved by updating my version of git after finding a post from 
+2015 that suggested this solution. 
+Hour of work: 1.5
+
+March 15:
+I started the Meteor tutorial that was using React and Blaze. As I was following along, 
+I realized I would be able to reuse some of the tutorial in the performance test.
+This would include some of the CSS used, as well as the Blase user validation and login.
+Hours of work: 3
+
+March 16:
+I finished the Meteor tutorial.
+Hours of work: 1
+
+March 17:
+No work was done this day.
+Hour of work: 0
+
+March 18:
+This was the day I wrote the project. I based the project around the tutorial, using their file 
+structure and they boiler plate code to get the project off the ground. My biggest concern when 
+starting the project was incorporating the user validation, but because that was handled for me,
+developing the rest of the project wasn't too difficult. The section I feel that fell apart was
+my implementation of the EditPostControls. I don't believe this is how it should be implemented, 
+but because of my lack of exposure to higher quality code examples, I wasn't sure how else to do it. 
+I believe with more exposure to React, I would be able to refactor it to something more elegent. 
+Hours of Work: 3
+
+Final Thoughts:
+This was a basic, yet fun little project. It was good to work with new technologies and to see them
+all come together and work seemlessly together and I learned a lot from doing it.
