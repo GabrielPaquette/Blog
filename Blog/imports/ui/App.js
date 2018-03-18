@@ -12,9 +12,18 @@ import AccountsUIWrapper from './AccountsUIWrapper.js';
 class App extends Component {
 
   renderPosts() {
-    return this.props.posts.map((post) => (
-      <Post key={post._id} post={post} />
-    ));
+    const currentUserId = this.props.currentUser && this.props.currentUser._id;
+    
+    return this.props.posts.map((post) => {
+      const showPrivateControls = post.owner === currentUserId;
+      return (
+        <Post
+          key={post._id}
+          post={post}
+          showPrivateControls={showPrivateControls}
+        />
+      );
+    });
   }
   handleSubmit(event){
     event.preventDefault();

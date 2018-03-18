@@ -79,7 +79,18 @@ ul {
   border: none;
   position: relative;
 }
-
+.edit{
+  float: right;
+  position: relative;
+}
+.save{
+  float: right;
+  position: relative;
+}
+.cancel{
+  float: right;
+  position: relative;
+}
 li {
   position: relative;
   list-style: none;
