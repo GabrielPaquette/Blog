@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import ReactDOM from 'react-dom';
 // Post component - represents a single Post
 export default class Post extends Component {
   //
@@ -23,7 +23,12 @@ export default class Post extends Component {
     });
   }
   savePost(){
+    let postText = ReactDOM.findDOMNode(this.refs.postText).value;
 
+    Meteor.call('posts.updatePost', this.props.post._id, postText);
+    this.setState({
+      editingFlag: false,
+    });
   }
   cancelEdit(){
     this.setState({
@@ -61,7 +66,9 @@ export default class Post extends Component {
           <button className="save" onClick={this.savePost.bind(this)}>Save</button>
           <strong>{this.props.post.username}:</strong>
           <br/><br/>
-          {this.props.post.text}
+          <textarea className="postBody"
+            ref="postText"
+            defaultValue={this.props.post.text}/>
         </div>
       );
     }

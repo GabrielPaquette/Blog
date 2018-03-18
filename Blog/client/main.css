@@ -91,6 +91,17 @@ ul {
   float: right;
   position: relative;
 }
+
+textarea.postBody {
+  resize:none;
+  word-wrap: break-word;
+  overflow:auto;
+  width: 95%;
+  height: 100%;
+  min-height: 100px;
+  font: inherit;
+}
+
 li {
   position: relative;
   list-style: none;
@@ -103,35 +114,9 @@ li .text {
   word-wrap: break-word;
 }
 
-li.checked {
-  color: #888;
-}
-
-li.checked .text {
-  text-decoration: line-through;
-}
-
-li.private {
-  background: #eee;
-  border-color: #ddd;
-}
-
-header .hide-completed {
-  float: right;
-}
-
-.toggle-private {
-  margin-left: 5px;
-}
-
 @media (max-width: 600px) {
   li {
     padding: 12px 15px;
-  }
-
-  .search {
-    width: 150px;
-    clear: both;
   }
 
   .new-post input {

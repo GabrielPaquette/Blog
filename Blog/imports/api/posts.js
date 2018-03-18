@@ -20,4 +20,10 @@ Meteor.methods({
 
     Posts.remove(postId);
   },
+    'posts.updatePost'(postId, text) {
+    check(postId, String);
+    check(text, String);
+
+    Posts.update(postId, { $set: { text: text } });
+  },
 });

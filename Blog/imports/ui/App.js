@@ -13,7 +13,7 @@ class App extends Component {
 
   renderPosts() {
     const currentUserId = this.props.currentUser && this.props.currentUser._id;
-    
+
     return this.props.posts.map((post) => {
       const showPrivateControls = post.owner === currentUserId;
       return (
@@ -62,7 +62,7 @@ class App extends Component {
 
 export default withTracker(() => {
   return {
-    posts: Posts.find({}).fetch(),
+    posts: Posts.find({}, {sort: {createdAt: -1 } }).fetch(),
     currentUser: Meteor.user(),
   };
 })(App);
